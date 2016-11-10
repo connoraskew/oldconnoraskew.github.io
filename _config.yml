@@ -1,10 +1,10 @@
 # Site settings
 title: Connor Askew
-email: your-email@domain.com
-url: https://example.github.io
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-skills: "Web Developer - Graphic Artist - User Experience Designer"
-meta_author: LastName FirstName
+email: connoraskew@hotmail.com
+url: https://connoraskew.github.io/
+description: "This is the public website for Connor Askew's Portfolio."
+skills: "Games Programmer"
+meta_author: Askew Connor
 
 # Google webmaster tools
 google_verify:
