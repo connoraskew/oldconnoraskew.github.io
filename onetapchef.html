@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" style="margin:0px">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Daniel Budworth-Mead is a games and software programmer based in Bristol, England.">
+    <meta name="author" content="danbudworthmead">
+
+    <title>danbudworthmead.com - Games and Software Programmer</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- Syntax Highlighter -->
+	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="../">Daniel Budworth-Mead</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="../"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../">Click here to go back</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" style="background-color:#white;color:black">
+        <div class="container">	
+            <div class="content">
+				<br>
+				<h2 style="text-align:center">One Tap Chef</h2>
+				<br>
+				<a href = "https://play.google.com/store/apps/details?id=com.DanBudworthMead.OneTapChef">Download 'One Tap Chef' for FREE on Android now!</a>
+				<h3>Overview</h3>
+				<p>
+					One Tap Chef was the second mobile game I developed and my first commercialised product. It was made in Unity 5.4. It is a very simple mobile game where the player 
+					has to click the food on the grill at the correct time. If food is cooked perfectly the player gains points. If the food is burned
+					or undercooked then the player loses points.<br> I experimented with audio cues whilst developing this game, they help the player
+					better understand the rules of the game.
+				</p>
+				<br>
+				<h3>Skills I learned from this project:</h3>
+				<ul>
+					<li><p>Improved C# knowledge</p></li>
+					<li><p>Improved mobile game development knowledge</p></li>
+					<li><p>Monitisation of a mobile game</p></li>
+					<li><p>Unity mobile development</p></li>
+					<li><p>Integration of a Facebook friends highscore system</p></li>
+				</ul>
+				<br>
+				
+				<h3>Play a web version of OneTapChef below</h3>
+				<p>It may take a while to load as it is a Unity for WebGL game...</p>
+				<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="640px" width="360px"></canvas>
+					<script type='text/javascript'>
+					var Module = {
+						TOTAL_MEMORY: 268435456,
+						errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+						compatibilitycheck: null,
+						dataUrl: "games/OneTouchChef/Release/WebGL.data",
+						codeUrl: "games/OneTouchChef/Release/WebGL.js",
+						memUrl: "games/OneTouchChef/Release/WebGL.mem",
+					
+					};
+					</script>
+				<script src="games/OneTouchChef/Release/UnityLoader.js"></script>
+			</div>
+		</div>
+    </section>
+
+</html>

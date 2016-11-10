@@ -1,0 +1,82 @@
+@media only screen and (max-height:720px){
+  body {
+  }
+}
+
+html, body, nav {
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 100%;
+	font-family: Lato;
+}
+
+body {
+}
+
+#selfie {
+	padding-top: 3%;
+	width: 80%;
+}
+
+.navitem, #sidebar {
+	font-style: none;
+	width: 20%;
+	float: left;
+	text-align: center;
+	font-size: 1.4vw;
+	min-height: 100%;
+	height: auto;
+	display: inline-block;
+}
+
+#sidebar {
+	text-decoration: none;
+}
+
+.navitem {	
+	text-transform: uppercase;
+	color: white;
+}
+
+.navitem:hover {
+	font-size: 1.5vw;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
+#navitem1 {	background-color: #26A65B; }
+#navitem2 {	background-color: #29B260; }
+#navitem3 {	background-color: #2DBF68; }
+#navitem4 { background-color: #30CC6E; }
+#sidebar { background-color: white; }
+
+.empty {
+	background-color: black;
+	height: 100px;
+	width: 100px;
+}
+
+nav {
+	overflow: visible !important;
+}
+
+#passionprojects, #courseprojects, #resume, #blog {
+	display: none;
+	opacity: 0;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 24%;
+	margin-right: 4%;
+	bottom: 10px;
+	font-size: 150%;
+	min-height: 78%;
+	max-height: 78%;
+	overflow-y: auto;
+    overflow-x: hidden;
+	background-color: white;
+	padding: 2%;
+	margin-top: 4.5%;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" style="margin:0px">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Daniel Budworth-Mead is a games and software programmer based in Bristol, England.">
+    <meta name="author" content="danbudworthmead">
+
+    <title>danbudworthmead.com - Games and Software Programmer</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- Syntax Highlighter -->
+	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="../">Daniel Budworth-Mead</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="../"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../">Click here to go back</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" style="background-color:#white;color:black">
+        <div class="container">	
+            <div class="content">
+				<br>
+				<h2 style="text-align:center">Physics Engine & Maths Library</h2>
+				<br>
+				<h3>Overview</h3>
+				<p>
+					I am particularly proud of this project because I wrote 
+					all of the mathematics and physics algorithms by myself, 
+					rather than using an out-of-the-box maths library.
+				</p>
+				<br>
+				<h3>Skills I learned from this project:</h3>
+				<ul>
+					<li><p>Improved C++ knowledge</p></li>
+					<li><p>Singleton design pattern</p>
+					<li><p>2D Collision detection and response</p></li>
+					<li><p>2D, 3D, and 4D vector mathematics</p></li>
+					<li><p>3x3 and 4x4 matrix mathematics</p></li>
+					<li><p>How to make a basic physics engine</p></li>
+				</ul>
+				<br>
+				<h3> The features of this mathematics library are as follows:</h3>
+				<ul>
+					<li><p>2D Vectors - 3D Vectors - 4D Vectors</p></li>
+					<li><p>3x3 Matrices - 4x4 Matrices</p></li>
+					<li><p>2D Wall Colliders</p></li>
+					<li><p>2D Axis Aligned Bounding Box Colliders</p></li>
+					<li><p>2D Axis Aligned Bounding Box Collision Manager</p></li>
+					<li><p>Linear Interpolation Algorithms</p></li>
+				</ul>
+				<br>
+				<h3>Code Snippets</h3>
+				<h4>Collision Response Algorithm</h4>	
+				<p>This piece of code handles the seperation of objects after they have collided.</p>
+				<pre class='brush: cpp;'>
+void AABBCollisionManager2D::UpdatePhysics(const bool DEBUG_MODE)
+{
+	for (auto pNonStaticCollider : nonStaticColliders)
+	{
+		for (auto pCollider : colliders)
+		{
+			if (pNonStaticCollider != pCollider)
+			{
+				if (pNonStaticCollider->AABBvsAABB(*pCollider))
+				{
+					if (DEBUG_MODE)
+						std::cout << pNonStaticCollider->GetName() << " has collided with " << pCollider->GetName() << std::endl;
+
+					//a nonstatic has collided with a collider
+					float distanceToNearestWall = (float)ULLONG_MAX;
+					int iClosest = -1;
+
+					for (unsigned int i = 0; i < 4; i++)
+					{
+						float distToWall = DistanceToWall(*pCollider->GetWall(i), pNonStaticCollider->GetPos());
+						if (distToWall < distanceToNearestWall)
+						{
+							distanceToNearestWall = distToWall;
+							iClosest = i;
+						}
+					}
+
+					if (iClosest == 0 || iClosest == 2)
+						return pNonStaticCollider->SetPos(pNonStaticCollider->GetPos() - pCollider->GetWall(iClosest)->GetNormal() * (distanceToNearestWall + pNonStaticCollider->GetHalfSize().x));
+					if (iClosest == 1 || iClosest == 3)
+						return pNonStaticCollider->SetPos(pNonStaticCollider->GetPos() - pCollider->GetWall(iClosest)->GetNormal() * (distanceToNearestWall + pNonStaticCollider->GetHalfSize().y));
+					
+					std::cout << distanceToNearestWall << std::endl;
+				}
+			}
+		}
+	}
+}
+				</pre>
+				<script src="js/shCore.js"></script>
+				<script src="js/shBrushCpp.js"></script>
+				<script>
+				SyntaxHighlighter.all()
+				</script>
+				
+				<br>
+				<h4>Collision Detection Algorithm</h4>
+				<p>This piece of code checks whether two objects have collided.</p>
+				<pre class='brush: cpp;'>				
+bool AABBCollider2D::AABBvsAABB(const AABBCollider2D& a_other) const
+{
+	if (a_other.pos_.x - a_other.halfSize_.x > pos_.x + halfSize_.x)
+		return false;
+	if (a_other.pos_.x + a_other.halfSize_.x < pos_.x - halfSize_.x)
+		return false;
+	if (a_other.pos_.y - a_other.halfSize_.y > pos_.y + halfSize_.y)
+		return false;
+	if (a_other.pos_.y + a_other.halfSize_.y < pos_.y - halfSize_.y)
+		return false;
+	return true;
+}				
+				</pre>
+				<script src="js/shCore.js"></script>
+				<script src="js/shBrushCpp.js"></script>
+				<script>
+				SyntaxHighlighter.all()
+				</script>
+				
+				
+				<br>
+				<h4>Add Colliders</h4>
+				<p>Code to add colliders to the collision manager pool</p>
+				<pre class='brush: cpp;'>				
+int AABBCollisionManager2D::Add(AABBCollider2D& a_collider)
+{
+	for (std::vector<AABBCollider2D*>::iterator iter = colliders.begin(); iter != colliders.end(); ++iter)
+	{
+		if (*iter == &a_collider)
+		{
+			return iter - colliders.begin();
+		}
+	}
+	colliders.push_back(&a_collider);
+	if (!a_collider.IsStatic())
+	{
+		nonStaticColliders.push_back(&a_collider);
+	}
+	return colliders.size() - 1;
+}
+				</pre>				
+				<script src="js/shCore.js"></script>
+				<script src="js/shBrushCpp.js"></script>
+				<script>
+				SyntaxHighlighter.all()
+				</script>
+				
+				
+				<br>
+				<h4>Remove Colliders</h4>
+				<p>Code to remove colliders from the collision manager pool</p>
+				<pre class='brush: cpp;'>	
+bool AABBCollisionManager2D::Remove(AABBCollider2D& a_collider)
+{
+	for (std::vector<AABBCollider2D*>::iterator iter = colliders.begin(); iter != colliders.end(); ++iter)
+	{
+		if (*iter == &a_collider)
+		{
+			colliders.erase(iter);
+			if (!a_collider.IsStatic())
+			{
+				for (std::vector<AABBCollider2D*>::iterator iter2 = nonStaticColliders.begin(); iter2 != nonStaticColliders.end(); ++iter2)
+				{
+					if (*iter2 == &a_collider)
+					{
+						nonStaticColliders.erase(iter2);
+						return true;
+					}
+				}
+			}
+			return true;
+		}
+	}
+	return false;
+}
+				</pre>
+				<script src="js/shCore.js"></script>
+				<script src="js/shBrushCpp.js"></script>
+				<script>
+				SyntaxHighlighter.all()
+				</script>
+				
+				<br>
+				<br>
+            </div>	
+    </section>
+
+</html>
