@@ -2,11 +2,10 @@
 layout: default
 modal-id: 2
 date: 2014-07-17
-img: cake.png
+img: void run_from_bad_guy.png
 alt: image-alt
 project-date: April 2014
 client: Start Bootstrap
 category: Web Development
-description: Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!
-
+description: this function creates a vector for the enemy, then calculates a cirecting by subtracting one vector from another, finds the angle between its current direction and the target direction, then tells the object to slowly rotate to face the target rotation and finally tells the object to move backwards away from the object. The bottom line "rend.enabled = true" is used to tell the object to render and be visiable when this function is called
 ---
