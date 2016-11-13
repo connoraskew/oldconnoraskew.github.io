@@ -2,6 +2,7 @@
 layout: default
 modal-id: 1
 date: 2014-07-18
+title: Code
 img: AI_Invoking.png
 alt: image-alt
 category: Web Development
